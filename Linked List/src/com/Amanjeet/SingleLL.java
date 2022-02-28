@@ -118,9 +118,9 @@ public class SingleLL {
 ////        ll.insertNodeAtStart(8);
 //        ll.append(11);
 //        ll.append(12);
-        ll.insertNodeAtStart(0);
-        ll.insert(1,1);
-        ll.insert(0,2);
+//        ll.insertNodeAtStart(0);
+//        ll.insert(1,1);
+//        ll.insert(0,2);
         ll.display();
     }
 }
