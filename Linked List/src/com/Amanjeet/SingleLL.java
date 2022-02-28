@@ -147,6 +147,22 @@ class Node{
         }
         this.numberOfNode -= 1;
     }
+
+    // remove node from start.
+    void remove(){
+        if(this.isEmpty()){
+            System.out.println("List is empty!! Nothing to remove..");
+            return;
+        }
+        if (this.numberOfNode == 1){
+            this.current = null;
+            this.head = null;
+        }
+        else{
+            this.head = head.next;
+        }
+        this.numberOfNode -= 1;
+    }
 }
 
 public class SingleLL {
@@ -165,18 +181,31 @@ public class SingleLL {
 //        ll.insert(1);
 //        ll.display();
 
-        for(int i=0;i<=5;++i){
-            ll.append(i);
-        }
+//        for(int i=0;i<=5;++i){
+//            ll.append(i);
+//        }
+//        ll.display();
+//
+//        ll.pop();
+//        ll.pop();
+//        ll.pop();
+//        ll.pop();
+//        ll.pop();
+//        ll.pop();
+//        ll.length();
+//        ll.display();
+
+        ll.append(0);
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.display();
+        ll.remove();
+        ll.remove();
+        ll.remove();
+        ll.remove();
+        ll.remove();
         ll.display();
 
-        ll.pop();
-        ll.pop();
-        ll.pop();
-        ll.pop();
-        ll.pop();
-        ll.pop();
-        ll.length();
-        ll.display();
     }
 }
