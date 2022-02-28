@@ -8,17 +8,21 @@ class Node{
     int numberOfNode = 0; // will take care of how many node has been created.
     private Node head = null, current = null;
 
+    // function to check whether list is empty of full.
     boolean isEmpty(){
         if(head == null) return true;
         else  return  false;
     }
 
+    // function to create new node and return ref of it.
     private Node createNode(int data){
         Node n = new Node();
         this.numberOfNode += 1;
         n.data = data;
         return n;
     }
+
+    // ************ function for inserting node in list *************
 
     // working fine.
     // inserting node at the start of
@@ -52,7 +56,7 @@ class Node{
         }
     }
 
-    void inser(int data){
+    void insert(int data){
         this.insertNodeAtStart(data);
     }
 
@@ -92,6 +96,8 @@ class Node{
         }
     }
 
+    // ******* function to display all element of list *********
+
     // working fine.
     // Display data of linked list.
     void display(){
@@ -108,6 +114,39 @@ class Node{
         }
         System.out.println(temp.data);
     }
+
+    // will return and display length of list.
+
+    // function to show no of node present in list.
+    int length(){
+        System.out.println("Length of list : " + this.numberOfNode);
+        return this.numberOfNode;
+    }
+
+
+    // ********* code for deleting node from list ********
+
+    // will remove element from end of list.
+    void pop(){
+        if(this.isEmpty()){
+            System.out.println("List is empty!! Nothing to delete.");
+            return;
+        }
+        if(this.numberOfNode == 1){
+            this.head = null;
+            this.current = null;
+        }
+        else{
+            Node temp = this.head;
+            while (temp.next.next != null){
+//                System.out.println("append : " + temp.data);
+                temp = temp.next;
+            }
+            this.current = temp;
+            temp.next = null;
+        }
+        this.numberOfNode -= 1;
+    }
 }
 
 public class SingleLL {
@@ -121,6 +160,23 @@ public class SingleLL {
 //        ll.insertNodeAtStart(0);
 //        ll.insert(1,1);
 //        ll.insert(0,2);
+//        ll.display();
+//        ll.length();
+//        ll.insert(1);
+//        ll.display();
+
+        for(int i=0;i<=5;++i){
+            ll.append(i);
+        }
+        ll.display();
+
+        ll.pop();
+        ll.pop();
+        ll.pop();
+        ll.pop();
+        ll.pop();
+        ll.pop();
+        ll.length();
         ll.display();
     }
 }
