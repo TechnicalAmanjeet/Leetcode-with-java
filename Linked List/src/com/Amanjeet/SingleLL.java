@@ -198,6 +198,26 @@ class Node{
         }
         this.numberOfNode -= 1;
     }
+
+    // ******* need to implement these properties in linked list ********
+//    Searching: To search an element(s) by value.
+//    Updating: To update a node.
+//    Sorting: To arrange nodes in a linked list in a specific order.
+//    Merging: To merge two linked lists into one.
+
+    boolean searchLL(int data){
+        Node temp = head;
+        while (temp.next != null){
+            if (temp.data == data){
+                System.out.println(data + " is present in ll");
+                return true;
+            }
+            temp = temp.next;
+        }
+        System.out.println(data + " is not present in ll.");
+        return false;
+    }
+
 }
 
 public class SingleLL {
@@ -249,8 +269,8 @@ public class SingleLL {
         ll.append(4);
 //        ll.append(4);
 //        ll.display();
-        ll.remove(5);
-        ll.display();
-
+//        ll.remove(5);
+//        ll.display();
+        ll.searchLL(5);
     }
 }
