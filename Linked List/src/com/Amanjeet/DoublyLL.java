@@ -253,6 +253,27 @@ public class DoublyLL {
         return false;
     }
 
+    // merge method.
+    public void merge(DoublyLL ll){
+        if(this.isEmpty()){
+            this.head = ll.head;
+            this.current = ll.current;
+        }
+        else if(this == ll){
+            // problem with when we try to merge a list to itself.
+            NodeD temp = ll.current;
+            this.current.next = ll.head;
+            this.current = temp;
+            ll.current.next = null;
+        }
+        else {
+            this.current.next = ll.head;
+            this.current = ll.current;
+
+        }
+
+        this.numberOfNode += ll.numberOfNode;
+    }
 
 
 
@@ -297,7 +318,11 @@ public class DoublyLL {
         ll.append(5);
 //        ll.search(6);
         ll.display();
-        ll.update(4,100);
+//        ll.update(4,100);
+        DoublyLL ll1 = new DoublyLL();
+        ll1.append(100);
+        ll.merge(ll);
+        ll1.display();
         ll.display();
     }
 }
