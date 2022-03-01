@@ -38,24 +38,73 @@ public class DoublyLL {
     }
 
     // create new node and return ref. of it.
-    private NodeD createNode(){
+    private NodeD createNode(int data){
         this.numberOfNode += 1;
-        return new NodeD();
+        NodeD n = new NodeD();
+        n.data = data;
+        return n;
     }
 
-    // Display all element of node in ascending order.
+    // ********** Display property ************
+
+    // 1. Display all element of node in ascending order.
     public void display(){
         if (isEmpty()){
             System.out.println("List is empty!! Nothing to display.");
             return;
         }
         NodeD temp = this.head;
-        System.out.println("\n Display : ");
+        System.out.println("\n Displaying in forward order : ");
         while (temp != null){
             System.out.print(temp.data + " ");
             temp = temp.next;
         }
     }
+
+    // 2. display list both in ascending and desending order.
+    public void display(boolean rev){
+        if (isEmpty()){
+            System.out.println("list is empty!! Nothing to display!!");
+            return;
+        }
+        else if(rev){
+            NodeD temp = current;
+            System.out.println("Displaying element in reverse order : ");
+            while(current != null){
+                System.out.print(current.data + " ");
+                current = current.prev;
+            }
+        }
+        else this.display();
+    }
+
+    // *********** Insertion functionality ***********
+
+
+    // 1. insert(int data) => insert element at start.
+    public void insert(int data){
+        NodeD n = createNode(data);
+
+        if(isEmpty()){
+            this.head = this.current = n;
+            n.prev = n.next = null;
+        }else {
+            head.prev = n;
+            n.next = head;
+            n.prev = null;
+            head = n;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
