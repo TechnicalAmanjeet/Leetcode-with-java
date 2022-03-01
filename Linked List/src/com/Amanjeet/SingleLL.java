@@ -163,6 +163,41 @@ class Node{
         }
         this.numberOfNode -= 1;
     }
+
+    // remove element from given position.
+    void remove(int pos){
+        if (pos < 0){
+            System.out.println("Your entered index doesn't exit in computer.");
+            return;
+        }
+        if (this.isEmpty()){
+            System.out.println("List is empty!! nothing to remove..");
+            return;
+        }
+        if(pos == 0){
+            this.remove();
+        }
+        else if (pos == this.numberOfNode-1){
+            this.pop();
+        }
+        else if (pos > this.numberOfNode - 1){
+            System.out.println("Given index is out of range!!");
+            return;
+        }
+        else{
+            // think about this functionality and add it in code.
+            System.out.println("printing in remove!!");
+            Node temp = head;
+            while(pos != 1){
+                System.out.println(temp.data);
+                temp = temp.next;
+                pos -= 1;
+            }
+            System.out.println("removing element is " + temp.next.data);
+            temp.next = temp.next.next;
+        }
+        this.numberOfNode -= 1;
+    }
 }
 
 public class SingleLL {
@@ -195,16 +230,26 @@ public class SingleLL {
 //        ll.length();
 //        ll.display();
 
+//        ll.append(0);
+//        ll.append(1);
+//        ll.append(2);
+//        ll.append(3);
+//        ll.display();
+//        ll.remove();
+//        ll.remove();
+//        ll.remove();
+//        ll.remove();
+//        ll.remove();
+//        ll.display();
+
         ll.append(0);
         ll.append(1);
         ll.append(2);
         ll.append(3);
-        ll.display();
-        ll.remove();
-        ll.remove();
-        ll.remove();
-        ll.remove();
-        ll.remove();
+        ll.append(4);
+//        ll.append(4);
+//        ll.display();
+        ll.remove(5);
         ll.display();
 
     }
