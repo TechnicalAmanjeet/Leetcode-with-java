@@ -17,13 +17,13 @@ package com.Amanjeet;
 
 import java.util.Arrays;
 
-class NodeD{
-    NodeD prev, next;
-    int data;
-}
 
 
 public class DoublyLL {
+    private class NodeD{
+        NodeD prev, next;
+        int data;
+    }
     private int numberOfNode;
     private  NodeD head, current;
 
