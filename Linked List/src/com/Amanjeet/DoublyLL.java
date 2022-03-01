@@ -210,6 +210,30 @@ public class DoublyLL {
         System.out.println(data + " is not present in the list.");
     }
 
+    // 4. Search in linked list. => search(int data)
+    //// 5. update => update(int prev, int curr)
+    //// 6. merge => merge(Node ll)
+    //// 7. sort => sort()
+
+    // search in list.
+    public boolean search(int data){
+        if(this.isEmpty()){
+            System.out.println("List is empty!!");
+        }
+        else{
+            NodeD temp = head;
+            while (temp != null){
+                if(temp.data == data){
+                    System.out.println(data + " is present in list.");
+                    return true;
+                }
+                temp = temp.next;
+            }
+            System.out.println(data + " is not present in list.");
+        }
+            return false;
+    }
+
 
 
 
@@ -252,8 +276,9 @@ public class DoublyLL {
         ll.append(2);
         ll.append(3);
         ll.append(4);
-        ll.remove(0);
+//        ll.remove(0);
         ll.append(5);
+        ll.search(6);
         ll.display();
     }
 }
