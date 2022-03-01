@@ -1,6 +1,20 @@
 package com.Amanjeet;
 
 import org.w3c.dom.ls.LSOutput;
+//functionality of linked list
+// 1. Display => both in forward and backward. => display()
+// 2. insertion =>
+//              1. insert at start. => insert()
+//              2. insert at end.  => append()
+//              3. insert in between. => insert(int pos)
+// 3. Deletion =>
+//              1. delete at start => remove()
+//              2. delete at end => pop()
+//              3. delete in beetween => remove(int data)
+// 4. Search in linked list. => search(int data)
+// 5. update => update(int prev, int curr)
+// 6. merge => merge(Node ll)
+// 7. sort => sort()
 
 import java.util.Arrays;
 
