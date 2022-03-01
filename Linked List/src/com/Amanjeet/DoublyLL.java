@@ -28,7 +28,8 @@ public class DoublyLL {
     // Default constructor.
     DoublyLL(){
         this.numberOfNode = 0;
-        this.head = this.current = null;
+        this.head = null;
+        this.current = null;
     }
 
     // isEmpty => return true : if list is empty ? false
@@ -45,16 +46,21 @@ public class DoublyLL {
         return n;
     }
 
+    public int length(){
+        System.out.println("Length of list : " + this.numberOfNode);
+        return this.numberOfNode;
+    }
+
     // ********** Display property ************
 
     // 1. Display all element of node in ascending order.
     public void display(){
         if (isEmpty()){
-            System.out.println("List is empty!! Nothing to display.");
+            System.out.println("\nList is empty!! Nothing to display.");
             return;
         }
         NodeD temp = this.head;
-        System.out.println("\n Displaying in forward order : ");
+        System.out.println("\nDisplaying in forward order : ");
         while (temp != null){
             System.out.print(temp.data + " ");
             temp = temp.next;
@@ -64,12 +70,12 @@ public class DoublyLL {
     // 2. display list both in ascending and desending order.
     public void display(boolean rev){
         if (isEmpty()){
-            System.out.println("list is empty!! Nothing to display!!");
+            System.out.println("\nlist is empty!! Nothing to display!!");
             return;
         }
         else if(rev){
             NodeD temp = current;
-            System.out.println("Displaying element in reverse order : ");
+            System.out.println("\nDisplaying element in reverse order : ");
             while(current != null){
                 System.out.print(current.data + " ");
                 current = current.prev;
@@ -83,12 +89,14 @@ public class DoublyLL {
 
     // 1. insert(int data) => insert element at start.
     public void insert(int data){
-        NodeD n = createNode(data);
-
+//        System.out.println(n + " " + n.data);
         if(isEmpty()){
-            this.head = this.current = n;
+            NodeD n = this.createNode(data);
+            this.head = n;
+            this.current = n;
             n.prev = n.next = null;
-        }else {
+        }else{
+            NodeD n = this.createNode(data);
             head.prev = n;
             n.next = head;
             n.prev = null;
@@ -108,6 +116,16 @@ public class DoublyLL {
 
 
     public static void main(String[] args) {
-
+        DoublyLL ll = new DoublyLL();
+//        System.out.println(ll.head + " " + ll.current);
+        ll.insert(5);
+        ll.insert(4);
+        ll.insert(3);
+        ll.insert(2);
+        ll.insert(1);
+        ll.insert(0);
+        ll.length();
+        ll.display();
+        ll.display(true);
     }
 }
