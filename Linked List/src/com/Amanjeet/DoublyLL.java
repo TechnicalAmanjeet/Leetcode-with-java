@@ -234,7 +234,24 @@ public class DoublyLL {
             return false;
     }
 
-
+    // update node in list.
+    public boolean update(int prev, int curr){
+        if(this.isEmpty()){
+            System.out.println("List is empty!! Nothing to update.");
+        }
+        else{
+            NodeD temp = this.head;
+            while (temp != null){
+                if(temp.data == prev){
+                    temp.data = curr;
+                    return true;
+                }
+                temp = temp.next;
+            }
+        }
+        System.out.println(prev + " is not present in list.");
+        return false;
+    }
 
 
 
@@ -278,7 +295,9 @@ public class DoublyLL {
         ll.append(4);
 //        ll.remove(0);
         ll.append(5);
-        ll.search(6);
+//        ll.search(6);
+        ll.display();
+        ll.update(4,100);
         ll.display();
     }
 }
