@@ -15,6 +15,8 @@ package com.Amanjeet;
 // 6. merge => merge(Node ll)
 // 7. sort => sort()
 
+import java.util.Arrays;
+
 class NodeD{
     NodeD prev, next;
     int data;
@@ -275,7 +277,56 @@ public class DoublyLL {
         this.numberOfNode += ll.numberOfNode;
     }
 
+    // adding sort functionality to the list.
+    public void sort(){
+        if(this.isEmpty()){
+            System.out.println("List is empty!! Nothing to sort.");
+            return;
+        }
+        int[] arr = new int[this.numberOfNode];
+        NodeD temp = this.head;
+        int index = 0;
+        while (temp != null){
+            arr[index] = temp.data;
+            index += 1;
+            temp = temp.next;
+        }
+        Arrays.sort(arr);
+        index = 0;
+        temp = this.head;
+        while (temp != null){
+            temp.data = arr[index];
+            index += 1;
+            temp = temp.next;
+        }
+    }
 
+    public void sort(boolean rev){
+        if(isEmpty()){
+            System.out.println("List is empty!! Nothing to sort.");
+        }
+        if(rev){
+            int[] arr = new int[this.numberOfNode];
+            NodeD temp = this.head;
+            int index = 0;
+            while (temp != null){
+                arr[index] = temp.data;
+                index += 1;
+                temp = temp.next;
+            }
+            Arrays.sort(arr);
+            index = this.numberOfNode - 1;
+            temp = this.head;
+            while (temp != null){
+                temp.data = arr[index];
+                index -= 1;
+                temp = temp.next;
+            }
+        }
+        else {
+            this.sort();
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -309,20 +360,31 @@ public class DoublyLL {
 
 //        ll.remove(0);
 
-        ll.append(0);
-        ll.append(1);
-        ll.append(2);
-        ll.append(3);
-        ll.append(4);
-//        ll.remove(0);
-        ll.append(5);
-//        ll.search(6);
+//        ll.append(0);
+//        ll.append(1);
+//        ll.append(2);
+//        ll.append(3);
+//        ll.append(4);
+////        ll.remove(0);
+//        ll.append(5);
+////        ll.search(6);
+//        ll.display();
+////        ll.update(4,100);
+//        DoublyLL ll1 = new DoublyLL();
+//        ll1.append(100);
+//        ll.merge(ll);
+//        ll1.display();
+//        ll.display();
+
+        for (int i=10; i>-5; --i){
+            ll.append(i);
+        }
         ll.display();
-//        ll.update(4,100);
-        DoublyLL ll1 = new DoublyLL();
-        ll1.append(100);
-        ll.merge(ll);
-        ll1.display();
+        ll.sort();
+        ll.display();
+        ll.sort(true);
+        ll.display();
+        ll.sort(false);
         ll.display();
     }
 }
