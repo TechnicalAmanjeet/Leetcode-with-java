@@ -176,6 +176,39 @@ public class DoublyLL {
         this.numberOfNode -= 1;
     }
 
+    // 3rd type of deletion method => remove(int data)
+    public void remove(int data){
+        if (this.isEmpty()){
+            System.out.println("List is empty!! Nothing to remove.");
+        }
+        else if(this.numberOfNode == 1 && this.head.data == data){
+            this.head = this.current = null;
+            this.numberOfNode -= 1;
+        }else if(this.head.data == data){
+            this.head = this.head.next;
+            this.head.prev = null;
+            return;
+        }
+        else{
+            NodeD temp = this.head;
+            while (temp.next != null){
+                if(temp.data == data){
+                    temp.next.prev = temp.prev;
+                    temp.prev.next = temp.next;
+                    this.numberOfNode -= 1;
+                    return;
+                }
+                temp = temp.next;
+            }
+            if(temp.data == data){
+                this.current = temp.prev;
+                this.current.next = null;
+                this.numberOfNode -= 1;
+                return;
+            }
+        }
+        System.out.println(data + " is not present in the list.");
+    }
 
 
 
@@ -202,15 +235,25 @@ public class DoublyLL {
 //        ll.display();
 //        ll.display(true);
 
-        ll.insert(0,0);
-        ll.insert(1,1);
-        ll.insert(2,2);
+//        ll.insert(0,0);
+//        ll.insert(1,1);
+//        ll.insert(2,2);
+////        ll.remove();
 //        ll.remove();
 //        ll.remove();
-//        ll.remove();
-        ll.pop();
-        ll.pop();
-        ll.pop();
+//        ll.pop();
+//        ll.pop();
+//        ll.pop();
+
+//        ll.remove(0);
+
+        ll.append(0);
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(4);
+        ll.remove(0);
+        ll.append(5);
         ll.display();
     }
 }
