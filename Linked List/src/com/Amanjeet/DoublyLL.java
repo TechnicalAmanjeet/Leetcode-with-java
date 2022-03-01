@@ -104,6 +104,20 @@ public class DoublyLL {
         }
     }
 
+    // 2. append(int data)
+    public void append(int data){
+        if(this.isEmpty()){
+            this.insert(data);
+        }
+        else{
+            NodeD n = this.createNode(data);
+            current.next = n;
+            n.prev = current;
+            n.next = null;
+            current = n;
+        }
+    }
+
 
 
 
@@ -118,12 +132,18 @@ public class DoublyLL {
     public static void main(String[] args) {
         DoublyLL ll = new DoublyLL();
 //        System.out.println(ll.head + " " + ll.current);
-        ll.insert(5);
-        ll.insert(4);
-        ll.insert(3);
-        ll.insert(2);
-        ll.insert(1);
-        ll.insert(0);
+//        ll.insert(5);
+//        ll.insert(4);
+//        ll.insert(3);
+//        ll.insert(2);
+//        ll.insert(1);
+//        ll.insert(0);
+
+        ll.append(0);
+        ll.append(1);
+        ll.append(2);
+        ll.append(3);
+        ll.append(04);
         ll.length();
         ll.display();
         ll.display(true);
