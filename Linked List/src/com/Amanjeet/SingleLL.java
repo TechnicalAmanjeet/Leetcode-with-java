@@ -2,6 +2,8 @@ package com.Amanjeet;
 
 import org.w3c.dom.ls.LSOutput;
 
+import java.util.Arrays;
+
 class Node{
     private int data;
     private Node next;
@@ -238,6 +240,49 @@ class Node{
         return false;
     }
 
+    // 3. merge two linked list.
+    void merge(Node ll){
+        // resolve the problem of self merging.
+        if(this == ll){
+            Node temp = this.current;
+            this.current = ll.current;
+            temp.next = ll.head;
+        }
+        else{
+            this.current.next = ll.head;
+            this.current = ll.current;
+        }
+        this.numberOfNode += ll.numberOfNode;
+    }
+
+    // 4. sort linkedlist in ascending order.
+    void sort(){
+        if (this.isEmpty()){
+            System.out.println("List is empty!!");
+            return;
+        }
+
+        Node temp = this.head;
+        int[] arr = new int[this.numberOfNode];
+        int index = 0;
+        while (temp.next != null){
+            arr[index] = temp.data;
+            index += 1;
+            temp = temp.next;
+        }
+        arr[index] = temp.data;
+
+        Arrays.sort(arr);
+        index = 0;
+        temp = this.head;
+        while (index != arr.length){
+            temp.data = arr[index];
+            index += 1;
+            temp = temp.next;
+        }
+
+    }
+
 }
 
 public class SingleLL {
@@ -282,17 +327,37 @@ public class SingleLL {
 //        ll.remove();
 //        ll.display();
 
-        ll.append(0);
-        ll.append(1);
-        ll.append(2);
-        ll.append(3);
-        ll.append(4);
+//        ll.append(0);
+//        ll.append(1);
+//        ll.append(2);
+//        ll.append(3);
 //        ll.append(4);
+////        ll.append(4);
+////        ll.display();
+////        ll.remove(5);
+////        ll.display();
+////        ll.searchLL(5);
+////        ll.update(5,10);
+//
+//        Node ll1 = new Node();
+//        ll1.append(5);
+//        ll1.append(6);
+//        ll1.append(7);
+//        ll1.append(8);
+//        ll1.append(9);
+//
+//        ll.merge(ll);
+//        System.out.println(ll.length());
+//        System.out.println(ll1.length());
 //        ll.display();
-//        ll.remove(5);
-//        ll.display();
-//        ll.searchLL(5);
-        ll.update(5,10);
+
+        for(int i=25; i>-15;--i){
+            ll.append(i);
+        }
+
         ll.display();
+        ll.sort();
+        ll.display();
+        ll.length();
     }
 }
