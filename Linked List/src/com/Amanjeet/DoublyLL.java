@@ -160,7 +160,21 @@ public class DoublyLL {
         this.numberOfNode -= 1;
     }
 
-
+    // 2. delete node from end => pop()
+    public void pop(){
+        if(this.isEmpty()){
+            System.out.println("List is empty!! Nothing to remove.");
+            return;
+        }
+        else if(this.numberOfNode == 1){
+            this.current = this.head = null;
+        }
+        else{
+            this.current = this.current.prev;
+            this.current.next = null;
+        }
+        this.numberOfNode -= 1;
+    }
 
 
 
@@ -191,9 +205,12 @@ public class DoublyLL {
         ll.insert(0,0);
         ll.insert(1,1);
         ll.insert(2,2);
-        ll.remove();
-        ll.remove();
-        ll.remove();
+//        ll.remove();
+//        ll.remove();
+//        ll.remove();
+        ll.pop();
+        ll.pop();
+        ll.pop();
         ll.display();
     }
 }
