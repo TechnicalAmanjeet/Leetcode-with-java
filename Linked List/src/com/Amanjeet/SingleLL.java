@@ -283,6 +283,32 @@ class Node{
 
     }
 
+    void descendingSort(){
+        if (this.isEmpty()){
+            System.out.println("List is empty!!");
+            return;
+        }
+
+        Node temp = this.head;
+        int[] arr = new int[this.numberOfNode];
+        int index = 0;
+        while (temp.next != null){
+            arr[index] = temp.data;
+            index += 1;
+            temp = temp.next;
+        }
+        arr[index] = temp.data;
+
+        Arrays.sort(arr);
+        index = arr.length-1;
+        temp = this.head;
+        while (index != -1){
+            temp.data = arr[index];
+            index -= 1;
+            temp = temp.next;
+        }
+    }
+
 }
 
 public class SingleLL {
@@ -359,5 +385,8 @@ public class SingleLL {
         ll.sort();
         ll.display();
         ll.length();
+
+        ll.descendingSort();
+        ll.display();
     }
 }
