@@ -7,11 +7,11 @@ import java.util.Arrays;
 class Node{
     private int data;
     private Node next;
-    int numberOfNode = 0; // will take care of how many node has been created.
+    private int numberOfNode = 0; // will take care of how many node has been created.
     private Node head = null, current = null;
 
     // function to check whether list is empty of full.
-    boolean isEmpty(){
+    private boolean isEmpty(){
         if(head == null) return true;
         else  return  false;
     }
