@@ -205,6 +205,8 @@ class Node{
 //    Sorting: To arrange nodes in a linked list in a specific order.
 //    Merging: To merge two linked lists into one.
 
+
+    // 1. search functionality.
     boolean searchLL(int data){
         Node temp = head;
         while (temp.next != null){
@@ -215,6 +217,24 @@ class Node{
             temp = temp.next;
         }
         System.out.println(data + " is not present in ll.");
+        return false;
+    }
+
+    // 2. update a node.
+    boolean update(int prev, int curr){
+        Node temp = head;
+        while (temp.next != null){
+            if(temp.data == prev){
+                temp.data = curr;
+                return true;
+            }
+            temp = temp.next;
+        }
+        if(temp.data == prev){
+            temp.data = curr;
+            return true;
+        }
+        System.out.println(prev + " is not in ll.");
         return false;
     }
 
@@ -271,6 +291,8 @@ public class SingleLL {
 //        ll.display();
 //        ll.remove(5);
 //        ll.display();
-        ll.searchLL(5);
+//        ll.searchLL(5);
+        ll.update(5,10);
+        ll.display();
     }
 }
