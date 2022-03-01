@@ -118,6 +118,30 @@ public class DoublyLL {
         }
     }
 
+    // insert data at some position. => insert(int data, int pos)
+    public void insert(int data, int pos){
+        if(pos == 0){
+            this.insert(data);
+        }else if(pos == this.numberOfNode){
+            this.append(data);
+        }else if(pos > this.numberOfNode - 1){
+            System.out.println("List index out of range!!");
+        }else if(pos < 0){
+            System.out.println("negative index is not there in list.");
+        }
+        else{
+            NodeD temp = this.head, n = this.createNode(data);
+            while (pos == 0){
+                temp = temp.next;
+                pos -= 1;
+            }
+            n.prev = temp.prev;
+            temp.prev.next = n;
+            n.next = temp;
+            temp.prev = n;
+        }
+    }
+
 
 
 
@@ -138,14 +162,19 @@ public class DoublyLL {
 //        ll.insert(2);
 //        ll.insert(1);
 //        ll.insert(0);
+//
+//        ll.append(0);
+//        ll.append(1);
+//        ll.append(2);
+//        ll.append(3);
+////        ll.append(04);
+//        ll.length();
+//        ll.display();
+//        ll.display(true);
 
-        ll.append(0);
-        ll.append(1);
-        ll.append(2);
-        ll.append(3);
-        ll.append(04);
-        ll.length();
+        ll.insert(0,0);
+        ll.insert(1,1);
+        ll.insert(2,2);
         ll.display();
-        ll.display(true);
     }
 }
