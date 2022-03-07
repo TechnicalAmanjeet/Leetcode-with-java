@@ -21,7 +21,6 @@ class Solution {
         }
 
         Arrays.sort(num);
-        for(int i=0; i<)
 
         return num;
     }
