@@ -2,7 +2,7 @@ package com.Amanjeet;
 
 import java.util.Arrays;
 
-class Solution {
+class Solution1 {
     public int[] sortJumbled(int[] mapping, int[] nums) {
         int[] output = new int[nums.length];
         int[] num = new int[nums.length];
